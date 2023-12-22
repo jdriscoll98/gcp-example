@@ -19,7 +19,7 @@ export const getServerSideProps = async (context: any) => {
     "public, max-age=0, s-maxage=60, stale-while-revalidate=300"
   );
   const res = await fetch(
-    "http://localhost:3000/text.json"
+    "https://gcp-example-n3padcs3la-uc.a.run.app/text.json"
   );
   const { data } = await res.json();
   return {
