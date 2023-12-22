@@ -14,6 +14,10 @@ export default function Home({
 }
 
 export const getServerSideProps = async () => {
+  // context.res.setHeader(
+  //   'Cache-Control',
+  //   'public, max-age=0, s-maxage=60, stale-while-revalidate=300'
+  // );
   const res = await fetch(
     "https://gcp-example-n3padcs3la-uc.a.run.app/text.txt"
   );
