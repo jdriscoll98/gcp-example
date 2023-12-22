@@ -16,7 +16,11 @@ export const logError = async (
     const ctx = serializeError(err);
     if (componentStack) ctx.stack = componentStack;
     const body = JSON.stringify({ ...serializeError(err), id, message });
-    console.error("Reporting error", body);
+    await fetch('/api/error', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body,
+    });
   } catch (e) {
     console.error("Error reporting error", e);
   }
